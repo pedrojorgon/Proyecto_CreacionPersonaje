@@ -39,14 +39,14 @@ public class VistaCreacionPersonaje extends JPanel {
         añadirImagen(imagenes[contadorPecho].getPath(), imagenPecho);
         añadirImagen(imagenes[contadorPiernas].getPath(), imagenPiernas);
 
-        imagenCasco.setBounds(100, 10, 250, 250);
-        imagenPecho.setBounds(100, 120, 250, 250);
-        imagenPiernas.setBounds(100, 230, 250, 250);
+        imagenCasco.setBounds(170, 0, 250, 250);
+        imagenPecho.setBounds(100, 110, 250, 250);
+        imagenPiernas.setBounds(141, 240, 250, 350);
 
         buttonCascoAnterior.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                
             }
         });
         buttonCascoSiguiente.addActionListener(new ActionListener() {
