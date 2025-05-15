@@ -1,9 +1,10 @@
-package Modelo;
+package Modelo.Rutas;
 
 import java.io.File;
 
-public class RutasImagenesPecheras {
-    private static File rutaImagenes = new File("src/main/java/Imagenes/Pecheras");
+public class RutasImagenesCascos {
+
+    private static File rutaImagenes = new File("src/main/java/Imagenes/Cascos");
     private static File[] imagenes = rutaImagenes.listFiles();
 
     public static File[] getImagenes() {

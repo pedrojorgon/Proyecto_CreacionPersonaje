@@ -2,9 +2,9 @@ package Vista;
 
 import Controlador.Conexion.GestorConexion;
 import Controlador.UTIL.InfoError;
-import Modelo.RutasImagenesCascos;
-import Modelo.RutasImagenesPecheras;
-import Modelo.RutasImagenesPiernas;
+import Modelo.Rutas.RutasImagenesCascos;
+import Modelo.Rutas.RutasImagenesPecheras;
+import Modelo.Rutas.RutasImagenesPiernas;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,7 +52,6 @@ public class VistaCreacionPersonaje extends JPanel {
         imagenPiernas.setBounds(141, 240, 250, 350);
 
         //Código botones
-
         buttonCascoAnterior.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
