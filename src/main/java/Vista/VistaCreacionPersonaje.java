@@ -47,7 +47,7 @@ public class VistaCreacionPersonaje extends JPanel {
         añadirImagen(imagenesPiernas[contadorPiernas].getPath(), imagenPiernas);
 
         //Coloco los JLabel
-        imagenCasco.setBounds(170, 0, 250, 250);
+        imagenCasco.setBounds(160, 0, 250, 250);
         imagenPecho.setBounds(100, 110, 250, 250);
         imagenPiernas.setBounds(141, 240, 250, 350);
 
