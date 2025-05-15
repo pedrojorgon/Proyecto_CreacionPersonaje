@@ -1,6 +1,10 @@
 package Vista;
 
-import Modelo.RutasImagenes;
+import Controlador.Conexion.GestorConexion;
+import Controlador.UTIL.InfoError;
+import Modelo.RutasImagenesCascos;
+import Modelo.RutasImagenesPecheras;
+import Modelo.RutasImagenesPiernas;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,70 +28,134 @@ public class VistaCreacionPersonaje extends JPanel {
     private JLabel imagenCasco;
     private JLabel imagenPecho;
     private JLabel imagenPiernas;
-    private File[] imagenes = RutasImagenes.getImagenes();
+    private File[] imagenesCascos = RutasImagenesCascos.getImagenes();
+    private File[] imagenesPecheras = RutasImagenesPecheras.getImagenes();
+    private File[] imagenesPiernas = RutasImagenesPiernas.getImagenes();
     private int contadorCasco = 0;
-    private int contadorPecho = 1;
-    private int contadorPiernas = 2;
-
+    private int contadorPecho = 0;
+    private int contadorPiernas = 0;
 
 
     public VistaCreacionPersonaje() {
 
+        //Asigno el layout a null para añadir las imágenes flotando en él
         panelPersonaje.setLayout(null);
 
-        añadirImagen(imagenes[contadorCasco].getPath(), imagenCasco);
-        añadirImagen(imagenes[contadorPecho].getPath(), imagenPecho);
-        añadirImagen(imagenes[contadorPiernas].getPath(), imagenPiernas);
+        //Añado las imágenes a los label con la imagen por defecto
+        añadirImagen(imagenesCascos[contadorCasco].getPath(), imagenCasco);
+        añadirImagen(imagenesPecheras[contadorPecho].getPath(), imagenPecho);
+        añadirImagen(imagenesPiernas[contadorPiernas].getPath(), imagenPiernas);
 
+        //Coloco los JLabel
         imagenCasco.setBounds(170, 0, 250, 250);
         imagenPecho.setBounds(100, 110, 250, 250);
         imagenPiernas.setBounds(141, 240, 250, 350);
 
+        //Código botones
+
         buttonCascoAnterior.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                if (contadorCasco == 0) {
+                    contadorCasco = imagenesCascos.length - 1;
+                    añadirImagen(imagenesCascos[contadorCasco].getPath(), imagenCasco);
+                } else {
+                    contadorCasco--;
+                    añadirImagen(imagenesCascos[contadorCasco].getPath(), imagenCasco);
+                }
             }
         });
         buttonCascoSiguiente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if (contadorCasco == imagenesCascos.length - 1) {
+                    contadorCasco = 0;
+                    añadirImagen(imagenesCascos[contadorCasco].getPath(), imagenCasco);
+                } else {
+                    contadorCasco++;
+                    añadirImagen(imagenesCascos[contadorCasco].getPath(), imagenCasco);
+                }
             }
         });
         buttonPechoAnterior.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if (contadorPecho == 0) {
+                    contadorPecho = imagenesPecheras.length - 1;
+                    añadirImagen(imagenesPecheras[contadorPecho].getPath(), imagenPecho);
+                } else {
+                    contadorPecho--;
+                    añadirImagen(imagenesPecheras[contadorPecho].getPath(), imagenPecho);
+                }
             }
         });
         buttonPechoSiguiente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if (contadorPecho == imagenesPecheras.length - 1) {
+                    contadorPecho = 0;
+                    añadirImagen(imagenesPecheras[contadorPecho].getPath(), imagenPecho);
+                } else {
+                    contadorPecho++;
+                    añadirImagen(imagenesPecheras[contadorPecho].getPath(), imagenPecho);
+                }
             }
         });
         buttonPiernasAnterior.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if (contadorPiernas == 0) {
+                    contadorPiernas = imagenesPiernas.length - 1;
+                    añadirImagen(imagenesPiernas[contadorPiernas].getPath(), imagenPiernas);
+                } else {
+                    contadorPiernas--;
+                    añadirImagen(imagenesPiernas[contadorPiernas].getPath(), imagenPiernas);
+                }
             }
         });
         buttonPiernasSiguiente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (contadorPiernas == imagenesPiernas.length - 1) {
+                    contadorPiernas = 0;
+                    añadirImagen(imagenesPiernas[contadorPiernas].getPath(), imagenPiernas);
+                } else {
+                    contadorPiernas++;
+                    añadirImagen(imagenesPiernas[contadorPiernas].getPath(), imagenPiernas);
+                }
+            }
+        });
+        buttonGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombrePersonaje = txtNombrePersonaje.getText();
 
             }
         });
     }
 
+    /**
+     * Coloca una imagen en un JLabel según una ruta proporcionada.
+     * @param ruta String ruta de imagen.
+     * @param lbl JLabel donde se coloca la imagen.
+     */
     public static void añadirImagen(String ruta, JLabel lbl) {
         ImageIcon icono = new ImageIcon(ruta);
         Image iconoAjustado = icono.getImage();
         lbl.setIcon(new ImageIcon(iconoAjustado));
     }
 
+    /**
+     * Inicia la interfaz gráfica.
+     * @param args
+     */
     public static void main(String[] args) {
+        int res = GestorConexion.crearConexion("creacionPersonaje", "root", "1234");
+        if (res != InfoError.OK) {
+            System.out.println(InfoError.getMensaje(res));
+        } else {
+            System.out.println(InfoError.getMensaje(res));
+        }
         JFrame frame = new JFrame("VistaCreacionPersonaje");
         frame.setContentPane(new VistaCreacionPersonaje().VentanaCreacion);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
