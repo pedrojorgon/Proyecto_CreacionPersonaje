@@ -144,17 +144,8 @@ public class VistaCreacionPersonaje extends JPanel {
         lbl.setIcon(new ImageIcon(iconoAjustado));
     }
 
-    /**
-     * Inicia la interfaz gráfica.
-     * @param args
-     */
-    public static void main(String[] args) {
-        int res = GestorConexion.crearConexion("creacionPersonaje", "root", "1234");
-        if (res != InfoError.OK) {
-            System.out.println(InfoError.getMensaje(res));
-        } else {
-            System.out.println(InfoError.getMensaje(res));
-        }
+
+    public static void mostrarVentanaPersonaje() {
         JFrame frame = new JFrame("VistaCreacionPersonaje");
         frame.setContentPane(new VistaCreacionPersonaje().VentanaCreacion);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

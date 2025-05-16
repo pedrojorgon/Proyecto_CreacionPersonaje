@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 /**
  * Clase para las consultas en la baase de datos.
@@ -69,22 +70,24 @@ public class ConsultasBD {
      * @param idPersonaje Id del personaje.
      * @return Personaje o null.
      */
-    public static Personaje leerPersonaje(int idPersonaje) {
+    public static Personaje leerPersonaje(int idUsuario, int idPersonaje) {
         Connection conn = GestorConexion.getConexion();
         int error;
         try {
-            String sql = "SELECT nombre, idCasco, idPecho, idPiernas FROM personajes WHERE id = ?";
+            String sql = "SELECT nombre, fecha_creacion, id_casco, id_pecho, id_piernas FROM personajes " +
+                    "WHERE id_usuario = ? AND id_personaje = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idPersonaje);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String nombre = rs.getString("nombre");
-                int idCasco = rs.getInt("idCasco");
-                int idPecho = rs.getInt("idPecho");
-                int idPiernas = rs.getInt("idPiernas");
+                LocalDate fecha = rs.getDate("fecha_creacion").toLocalDate();
+                int idCasco = rs.getInt("id_casco");
+                int idPecho = rs.getInt("id_pecho");
+                int idPiernas = rs.getInt("id_piernas");
                 error = InfoError.OK;
                 System.out.printf(InfoError.getMensaje(error));
-                return new Personaje(idPersonaje, nombre, idCasco, idPecho, idPiernas);
+                return new Personaje(idUsuario, idPersonaje, nombre, fecha, idCasco, idPecho, idPiernas);
             } else {
                 error = InfoError.PERSONAJE_NO_ENCONTRADO;
                 System.err.printf(InfoError.getMensaje(error));

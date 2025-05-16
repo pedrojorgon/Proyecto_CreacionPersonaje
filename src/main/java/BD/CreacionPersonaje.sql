@@ -10,7 +10,7 @@ create table usuarios (
 create table personajes (
 	id_usuario INT NOT NULL, -- ID como clave foránea
 	id_personaje INT NOT NULL, -- ID del personaje
-    fecha_guardado TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, -- Fecha de guardado
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, -- Fecha de guardado
     nombre VARCHAR(16), -- Nombre del personaje
     id_casco INT NOT NULL, -- Id imagen casco
     id_pecho INT NOT NULL, -- Id imagen pecho
