@@ -1,7 +1,10 @@
 package Vista;
 
+import Controlador.CRUD.ConsultasBD;
+import Controlador.CRUD.InsertsBD;
 import Controlador.Conexion.GestorConexion;
 import Controlador.UTIL.InfoError;
+import Modelo.Objetos.Personaje;
 import Modelo.Rutas.RutasImagenesCascos;
 import Modelo.Rutas.RutasImagenesPecheras;
 import Modelo.Rutas.RutasImagenesPiernas;
@@ -11,6 +14,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.time.LocalDate;
 
 public class VistaCreacionPersonaje extends JPanel {
 
@@ -128,7 +132,9 @@ public class VistaCreacionPersonaje extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nombrePersonaje = txtNombrePersonaje.getText();
-
+                Personaje p = new Personaje(1, 1, nombrePersonaje, LocalDate.now(), contadorCasco,
+                        contadorPecho, contadorPiernas);
+                System.out.println(InfoError.getMensaje(InsertsBD.nuevoPersonaje(p)));
             }
         });
     }

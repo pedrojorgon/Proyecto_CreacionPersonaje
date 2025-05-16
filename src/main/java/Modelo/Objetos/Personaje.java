@@ -8,18 +8,18 @@ public class Personaje {
     private int id_personaje;
     private String nombre;
     private LocalDate fecha_creacion;
-    private int idCasco;
-    private int idPecho;
-    private int idPiernas;
+    private int id_casco;
+    private int id_pecho;
+    private int id_piernas;
 
     public Personaje(int id_usuario, int id_personaje, String nombre, LocalDate fecha_creacion, int idCasco, int idPecho, int idPiernas) {
         this.id_usuario = id_usuario;
         this.id_personaje = id_personaje;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
-        this.idCasco = idCasco;
-        this.idPecho = idPecho;
-        this.idPiernas = idPiernas;
+        this.id_casco = idCasco;
+        this.id_pecho = idPecho;
+        this.id_piernas = idPiernas;
     }
 
     public int getId_usuario() {
@@ -54,27 +54,27 @@ public class Personaje {
         this.fecha_creacion = fecha_creacion;
     }
 
-    public int getIdCasco() {
-        return idCasco;
+    public int getId_casco() {
+        return id_casco;
     }
 
-    public void setIdCasco(int idCasco) {
-        this.idCasco = idCasco;
+    public void setId_casco(int id_casco) {
+        this.id_casco = id_casco;
     }
 
-    public int getIdPecho() {
-        return idPecho;
+    public int getId_pecho() {
+        return id_pecho;
     }
 
-    public void setIdPecho(int idPecho) {
-        this.idPecho = idPecho;
+    public void setId_pecho(int id_pecho) {
+        this.id_pecho = id_pecho;
     }
 
-    public int getIdPiernas() {
-        return idPiernas;
+    public int getId_piernas() {
+        return id_piernas;
     }
 
-    public void setIdPiernas(int idPiernas) {
-        this.idPiernas = idPiernas;
+    public void setId_piernas(int id_piernas) {
+        this.id_piernas = id_piernas;
     }
 }

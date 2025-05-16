@@ -9,9 +9,7 @@ import java.awt.*;
  * <p>
  * La clase muestra un mensaje de error y una disculpa al usuario.
  *
- * @author DANIEL REDONDO VELASCO
- * @version 1.0
- * @since 2025
+ * @author Pedro Jorlar González
  */
 
 public class Error_INICIAR_BD extends JFrame {
