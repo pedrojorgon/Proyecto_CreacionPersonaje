@@ -1,3 +1,7 @@
+-- BASE DE DATOS DEL PROYECTO DE 1º DE DAM
+-- CEFP JUAN DE HERRERA
+-- AUTOR: PEDRO JORLAR GONZÁLEZ
+
 create database creacionPersonaje;
 use creacionPersonaje;
 
