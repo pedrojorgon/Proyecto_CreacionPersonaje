@@ -1,8 +1,6 @@
 package Vista;
 
-import Controlador.CRUD.ConsultasBD;
 import Controlador.CRUD.InsertsBD;
-import Controlador.Conexion.GestorConexion;
 import Controlador.UTIL.InfoError;
 import Modelo.Objetos.Personaje;
 import Modelo.Rutas.RutasImagenesCascos;
@@ -16,6 +14,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.time.LocalDate;
 
+/**
+ * Clase de la ventana de creación del personaje.
+ * @author Pedro.JorGon
+ */
 public class VistaCreacionPersonaje extends JPanel {
 
     private JPanel VentanaCreacion;
@@ -55,7 +57,7 @@ public class VistaCreacionPersonaje extends JPanel {
         imagenPecho.setBounds(100, 110, 250, 250);
         imagenPiernas.setBounds(141, 240, 250, 350);
 
-        //Código botones
+        //Botones
         buttonCascoAnterior.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -150,7 +152,9 @@ public class VistaCreacionPersonaje extends JPanel {
         lbl.setIcon(new ImageIcon(iconoAjustado));
     }
 
-
+    /**
+     * Muestra la ventana de creación de personaje.
+     */
     public static void mostrarVentanaPersonaje() {
         JFrame frame = new JFrame("VistaCreacionPersonaje");
         frame.setContentPane(new VistaCreacionPersonaje().VentanaCreacion);
